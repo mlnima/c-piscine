@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 08:14:22 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/12 08:14:22 by marvin           ###   ########.fr       */
+/*   Created: 2024/09/12 15:11:43 by marvin            #+#    #+#             */
+/*   Updated: 2024/09/12 15:11:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power)
-{
-	int	result;
+#include <unistd.h>
 
-	if (power == 0)
-		return (0);
-	if (power == 1)
-		return (nb);
-	result = nb * nb;
-	power--;
-	while (power > 1)
-	{
-		result *= nb;
-		power--;
-	}
-	return (result);
-}
-
-int	ft_recursive_power(int nb, int power)
+int main(int _, char *argv[])
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
+    (void)_;
+
+    int len = 0;
+    while (argv[0][len] != '\0')
+        len++;
+
+    write(1, argv[0], len);
+    return (0);
 }

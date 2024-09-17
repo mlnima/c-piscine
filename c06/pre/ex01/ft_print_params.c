@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 08:14:22 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/12 08:14:22 by marvin           ###   ########.fr       */
+/*   Created: 2024/09/13 08:45:46 by marvin            #+#    #+#             */
+/*   Updated: 2024/09/13 08:45:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power)
-{
-	int	result;
+#include <unistd.h>
+#include <stdio.h>
 
-	if (power == 0)
-		return (0);
-	if (power == 1)
-		return (nb);
-	result = nb * nb;
-	power--;
-	while (power > 1)
-	{
-		result *= nb;
-		power--;
-	}
-	return (result);
+void arg_writer(char *arg)
+{
+    int len = 0;
+    while (arg[len] != '\0')
+        len++;
+
+    write(1, arg, len);
+    write(1, "\n", 1);
 }
 
-int	ft_recursive_power(int nb, int power)
+int main(int argc, char *argv[])
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	return (nb * ft_recursive_power(nb, power - 1));
+    int indexer = 1;
+    while (indexer < argc)
+    {
+        arg_writer(argv[indexer]);
+        indexer++;
+    }
+    return (0);
 }

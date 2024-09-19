@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimalaye <nimalaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 13:19:49 by nimalaye          #+#    #+#             */
-/*   Updated: 2024/09/17 14:42:53 by nimalaye         ###   ########.fr       */
+/*   Created: 2024/09/04 09:47:44 by nimalaye          #+#    #+#             */
+/*   Updated: 2024/09/04 13:41:04 by nimalaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+char	*ft_strlowcase(char *str)
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	return (nb * ft_recursive_power(nb, power - 1));
+	char	*output;
+
+	output = str;
+	while (*str)
+	{
+		if (*str >= 'A' && *str <= 'Z')
+		{
+			*str += 32;
+		}
+		str++;
+	}
+	return (output);
 }

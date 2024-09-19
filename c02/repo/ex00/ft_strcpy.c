@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimalaye <nimalaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 13:19:49 by nimalaye          #+#    #+#             */
-/*   Updated: 2024/09/17 14:42:53 by nimalaye         ###   ########.fr       */
+/*   Created: 2024/09/03 13:18:23 by nimalaye          #+#    #+#             */
+/*   Updated: 2024/09/05 10:06:19 by nimalaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+char	*ft_strcpy(char *dest, char *src)
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	return (nb * ft_recursive_power(nb, power - 1));
+	char	*dest_start;
+
+	dest_start = dest;
+	while (*src)
+	{
+		*dest = *src;
+		src++;
+		dest++;
+	}
+	*dest = '\0'; 
+	return (dest_start); 
 }
+
+//int main(void)
+//{
+//    char src[] = "Hello, world!"; 
+//    char dest[50];
+//    ft_strcpy(dest, src);
+
+//    printf("Source: %s\n", src);
+//    printf("Destination: %s\n", dest);
+//    return 0;
+//}

@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nimalaye <nimalaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 13:19:49 by nimalaye          #+#    #+#             */
-/*   Updated: 2024/09/17 14:42:53 by nimalaye         ###   ########.fr       */
+/*   Created: 2024/09/04 09:10:17 by nimalaye          #+#    #+#             */
+/*   Updated: 2024/09/09 13:43:19 by nimalaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+int	ft_str_is_printable(char *str)
 {
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	return (nb * ft_recursive_power(nb, power - 1));
+	int		faild;
+	int		c_decimal;
+	char	current;
+
+	faild = 1;
+	while (*str)
+	{
+		current = *str;
+		c_decimal = *str;
+		if (c_decimal >= 32 && c_decimal <= 126)
+		{
+			str++;
+			continue ;
+		}
+		else
+		{
+			faild = 0;
+			break ;
+		}
+	}
+	return (faild);
 }
